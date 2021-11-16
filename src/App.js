@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 function App() {
   const [users, setUsers] = useState([]);
 
-  const backendUrl = "http://localhost:3022";
+  const backendUrl = "https://live-user-mgr-back-end.herokuapp.com/";
 
   const loadUsers = async () => {
     const response = await fetch(backendUrl);
