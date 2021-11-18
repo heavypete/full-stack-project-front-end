@@ -3,7 +3,7 @@ import "./App.scss";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const backendUrl = "http://localhost:3016";
+const backendUrl = "https://live-user-mgr-back-end.herokuapp.com/";
 
 function App() {
   const [users, setUsers] = useState([]);
