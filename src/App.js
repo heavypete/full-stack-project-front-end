@@ -3,7 +3,7 @@ import "./App.scss";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const backendUrl = "https://live-user-mgr-back-end.herokuapp.com/";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -27,7 +27,7 @@ function App() {
 
   const handleDeleteButton = (user) => {
     (async () => {
-      await fetch(`${backendUrl}/deleteuser/${user._id}`, { method: "DELETE" });
+      await fetch(`${backendUrl}deleteuser/${user._id}`, { method: "DELETE" });
       loadUsers();
     })();
   };
@@ -44,7 +44,7 @@ function App() {
 
   const handleEmailSave = (user) => {
     (async () => {
-      await fetch(`${backendUrl}/edituseremail/${user._id}`, {
+      await fetch(`${backendUrl}edituseremail/${user._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -86,7 +86,7 @@ function App() {
   const handleFormSaveButton = (e) => {
     e.preventDefault();
     (async () => {
-      await fetch(`${backendUrl}/insertuser`, {
+      await fetch(`${backendUrl}insertuser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
